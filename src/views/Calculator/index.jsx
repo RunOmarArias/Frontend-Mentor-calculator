@@ -1,12 +1,12 @@
-import CalculatorHeader from "./components/CalculatorHeader/index.jsx";
-import CalculatorDisplay from "./components/CalculatorDisplay/index.jsx";
-import CalculatorButtons from "./components/CalculatorButtons/index.jsx";
-import { StyledCalculator } from "./styles/styles.jsx";
-import { useEffect, useState } from "react";
+import CalculatorHeader from './components/CalculatorHeader/index.jsx';
+import CalculatorDisplay from './components/CalculatorDisplay/index.jsx';
+import CalculatorButtons from './components/CalculatorButtons/index.jsx';
+import { StyledCalculator } from './styles/styles.jsx';
+import { useEffect, useState } from 'react';
 
 export default function Calculator() {
   const calculator = (key) => {
-    if (!isNaN(key) || key === ".") {
+    if (!isNaN(key) || key === '.') {
       setCalcStorageDisplay(calcStorageDisplay + key);
       if (
         !currentOperation.value1 &&
@@ -38,11 +38,11 @@ export default function Calculator() {
       ) {
         getOperator(key);
       } else {
-        if (key === "=") {
+        if (key === '=') {
           if (
-            !currentOperation.value1  &&
+            !currentOperation.value1 &&
             !currentOperation.operation &&
-            !currentOperation.value2 
+            !currentOperation.value2
           ) {
             return;
           } else {
@@ -54,12 +54,12 @@ export default function Calculator() {
             setCalcStorageDisplay(String(result));
             setCurrentOperation({
               value1: String(result),
-              operation: "",
-              value2: "",
+              operation: '',
+              value2: '',
             });
           }
         } else {
-          if (key === "D") {
+          if (key === 'D') {
             setCalcStorageDisplay(calcStorageDisplay.slice(0, -1));
             if (
               currentOperation.value1 &&
@@ -92,9 +92,9 @@ export default function Calculator() {
               return;
             }
           } else {
-            if (key === "C") {
-              setCalcStorageDisplay("");
-              setCurrentOperation({ value1: "", operation: "", value2: "" });
+            if (key === 'C') {
+              setCalcStorageDisplay('');
+              setCurrentOperation({ value1: '', operation: '', value2: '' });
             } else {
               setCalcStorageDisplay(calcStorageDisplay + key);
               setCurrentOperation({ ...currentOperation, operation: key });
@@ -107,13 +107,13 @@ export default function Calculator() {
 
   const getOperation = (value1, operation, value2) => {
     switch (operation) {
-      case "+":
+      case '+':
         return value1 + value2;
-      case "-":
+      case '-':
         return value1 - value2;
-      case "x":
+      case 'x':
         return value1 * value2;
-      case "/":
+      case '/':
         return value1 / value2;
       default:
         break;
@@ -129,30 +129,30 @@ export default function Calculator() {
     setCurrentOperation({
       value1: displayValue,
       operation: newOperation,
-      value2: "",
+      value2: '',
     });
     setCalcStorageDisplay(displayValue + newOperation);
   };
 
   const isOperator = (value) => {
     switch (value) {
-      case "+":
-      case "-":
-      case "/":
-      case "x":
+      case '+':
+      case '-':
+      case '/':
+      case 'x':
         return true;
       default:
         return false;
     }
   };
 
-  const [calcValue, setCalcValue] = useState("");
+  const [calcValue, setCalcValue] = useState('');
   const [click, setClick] = useState(0);
-  const [calcStorageDisplay, setCalcStorageDisplay] = useState("");
+  const [calcStorageDisplay, setCalcStorageDisplay] = useState('');
   const [currentOperation, setCurrentOperation] = useState({
-    value1: "",
-    operation: "",
-    value2: "",
+    value1: '',
+    operation: '',
+    value2: '',
   });
 
   useEffect(() => {
