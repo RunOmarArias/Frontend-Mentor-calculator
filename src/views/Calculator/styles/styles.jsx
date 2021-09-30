@@ -8,6 +8,10 @@ export const StyledCalculator = styled.div`
     width: 40%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    @media (max-width: 375px) {
+        align-items: center; 
+    }
 `
 
 //CalculatorHeader
@@ -16,8 +20,11 @@ export const StyledCalculatorHeader = styled.div`
     font-family: 'Spartan Bold';
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    width: 58%;
     color: white;
+    @media (max-width: 375px) {
+        width: 215%; 
+    }
 `
 export const StyledCalculatorTheme = styled.div`
     display: flex;
@@ -29,6 +36,8 @@ export const StyledCalculatorTheme = styled.div`
 export const StyledCalculatorDisplay = styled.label`
     display: flex;
     height: 0.5em;
+    max-width: 10.8em;
+    min-width: 10.8em;
     justify-content: flex-end;
     align-items: center;
     font-family: 'Spartan Bold';
@@ -47,17 +56,23 @@ export const StyledCalculatorDisplay = styled.label`
 export const StyledCalculatorButtons = styled.div`
     display: grid;
     grid-gap: 15px;
+    max-width: 19em;
+    min-width: 19em;
     grid-template-columns: repeat(4, 2fr);
     grid-template-rows: repeat(5, auto);
-    background-color: #252D44;
     padding: 1.5em;
     border-radius: 0.5em;
+    background-color: #252D44;
     justify-content: center;
 `
 
 export const StyledButton = styled.button`
-    font-family: 'Spartan Bold';
     font-size: 20px;
+    max-width: 3.2em;
+    min-width: 3.2em;
+    max-height: 1.9em;
+    min-height: 1.9em;
+    font-family: 'Spartan Bold';
     background-color: #EAE3DB;
     color: #424953;
     border: 0px;
@@ -66,6 +81,9 @@ export const StyledButton = styled.button`
     padding: 10px 8px 10px 8px;
     :hover {
         cursor: pointer;
+    }
+    @media (max-width: 375px) {
+        max-height: 2.5em;
     }
 `
 
